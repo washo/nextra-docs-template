@@ -1,38 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+このリポジトリでは、[本家](https://github.com/shuding/nextra-docs-template)のnextra-docs-templateを自分用に編集したものとなってます
 
-## Getting Started
+## はじめてみる
 
-First, run the development server:
+まずは、下記のいずれかのコマンドで構築
 
 ```bash
+npm install
 npm run dev
 # or
+yarn install
 yarn dev
 # or
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+次に、ブラウザにて [http://localhost:3000](http://localhost:3000)へ接続し、表示される事を確認 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 記事の作成
+あとは、pagesの中にファイル・ディレクトリを作成し、MD/MDX記法で記事を書いていくだけです
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+例： 
+サンプル記事として作成する場合、 下記のいずれかでファイルを作成
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- pages/sample.mdx
+- 階層化したいのであればpages/sample/index.mdx
 
-## Learn More
+sample.mdx(sample/index.mdx)の内容
+```markdown
 
-To learn more about Next.js, take a look at the following resources:
+---
+title: サンプル記事
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## サンプル記事
+ここにMarkdown記法で作成
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## カスタマイズ概要
+本家リポジトリをカスタマイズしている項目
+- GoogleFont(M Plus)利用
+- SSG出力のエラー回避のため画像最適化に`unoptimized: true,`を追記
+- 外部URLを読み込むためS3とimgurを許可(適宜修正)
+- 検索内文字を"検索"へ変更
+- TOCの表記を”目次”へ変更
+- feedbackを非表示
+- Github,Twitterリンクアイコン非表示
+- サイドバートグルボタン をデフォルトで表示
+- Dark/Lightの配色を変更（適宜修正)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+テーマのカスタマイズは、`theme.config.tsx`や`Home.module.css`で変更可能となってます  
+最低限、**logoタイトル**、**フッター**、`Edit this page`の**リンク先**を変更しましょう！
